@@ -2,10 +2,10 @@ import Image from "next/image";
 import { IMAGES } from "../lib/constants";
 
 const stats = [
-  { number: "28,526", label: "attendees at Babcock Tech Week 2025" },
-  { number: "488+", label: "International speakers and thought-leaders" },
-  { number: "466+", label: "Global tech and solution providers" },
-  { number: "80%", label: "would attend again in 2026" },
+  { number: "1,200+", label: "attendees at the 2026 career fair" },
+  { number: "63", label: "hackathon teams" },
+  { number: "15", label: "sponsors" },
+  { number: "14,000", label: "students on campus" },
 ];
 
 const images = [
