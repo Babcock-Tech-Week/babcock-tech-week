@@ -1,13 +1,21 @@
 import Image from "next/image";
 import Link from "next/link";
 import { IMAGES } from "../lib/constants";
+import { PARTNERSHIPS_EMAIL } from "../lib/site";
 
 type ComingSoonProps = {
   title: string;
   description: string;
+  badge?: string;
+  children?: React.ReactNode;
 };
 
-export default function ComingSoon({ title, description }: ComingSoonProps) {
+export default function ComingSoon({
+  title,
+  description,
+  badge = "Coming Soon",
+  children,
+}: ComingSoonProps) {
   return (
     <div className="min-h-screen bg-black text-white flex flex-col">
       {/* Main content */}
@@ -30,7 +38,7 @@ export default function ComingSoon({ title, description }: ComingSoonProps) {
         <div className="flex items-center gap-3 mb-6">
           <span className="w-8 h-px bg-white/30" />
           <span className="text-xs font-bold tracking-[0.25em] text-white/50 uppercase">
-            Coming Soon
+            {badge}
           </span>
           <span className="w-8 h-px bg-white/30" />
         </div>
@@ -39,6 +47,8 @@ export default function ComingSoon({ title, description }: ComingSoonProps) {
         <p className="text-base md:text-lg text-white/60 text-center max-w-md mb-10 leading-relaxed">
           {description}
         </p>
+
+        {children}
 
         {/* CTA */}
         <Link
@@ -59,10 +69,10 @@ export default function ComingSoon({ title, description }: ComingSoonProps) {
           <p className="text-center text-sm text-white/40">
             Have suggestions for this section? Reach out at{" "}
             <a
-              href="mailto:babcocktechweek@gmail.com"
+              href={`mailto:${PARTNERSHIPS_EMAIL}`}
               className="text-white/60 underline hover:text-white transition-colors"
             >
-              babcocktechweek@gmail.com
+              {PARTNERSHIPS_EMAIL}
             </a>
           </p>
         </div>

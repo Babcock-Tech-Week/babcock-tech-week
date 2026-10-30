@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "../../lib/seo";
 import ComingSoon from "../_components/ComingSoon";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Editions | Babcock Tech Week",
-  description: "Explore current and past editions of Babcock Tech Week.",
-  alternates: { canonical: "/2026/editions" },
-};
+  description:
+    "Explore current and past editions of Babcock Tech Week.",
+  path: "/2026/editions",
+});
 
 export default function EditionsPage() {
   return (

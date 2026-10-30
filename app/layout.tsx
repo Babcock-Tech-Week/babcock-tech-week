@@ -3,6 +3,8 @@ import { Google_Sans } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import "./fonts.css";
+import { SITE_URL, EVENT_TITLE, EVENT_DESCRIPTION } from "./lib/site";
+import { pageMetadata } from "./lib/seo";
 
 const googleSans = Google_Sans({
   variable: "--font-google-sans",
@@ -11,9 +13,8 @@ const googleSans = Google_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Babcock Tech Week | 22-29 March 2026",
-  description:
-    "Babcock Tech Week 2026, 22-29 March 2026, at Babcock University. Organised by the Babcock University Computer Club (BUCC).",
+  metadataBase: new URL(SITE_URL),
+  ...pageMetadata({ title: EVENT_TITLE, description: EVENT_DESCRIPTION, path: "/" }),
 };
 
 export default function RootLayout({

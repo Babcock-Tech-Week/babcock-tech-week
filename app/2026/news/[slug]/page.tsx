@@ -5,6 +5,7 @@ import Link from "next/link";
 import Header from "../../_components/Header";
 import Footer from "../../_components/Footer";
 import { NEWS_ARTICLES } from "../../_lib/newsData";
+import { pageMetadata } from "../../../lib/seo";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -21,11 +22,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const article = NEWS_ARTICLES.find((a) => a.slug === slug);
   if (!article) return { title: "Article Not Found" };
 
-  return {
+  return pageMetadata({
     title: `${article.title} | Babcock Tech Week`,
     description: article.excerpt,
-    alternates: { canonical: `/2026/news/${slug}` },
-  };
+    path: `/2026/news/${slug}`,
+  });
 }
 
 export default async function NewsArticlePage({ params }: Props) {

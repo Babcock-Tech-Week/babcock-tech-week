@@ -59,10 +59,10 @@ export default function ComingSoon({ title, description }: ComingSoonProps) {
           <p className="text-center text-sm text-white/40">
             Have suggestions for this section? Reach out at{" "}
             <a
-              href="mailto:babcocktechweek@gmail.com"
+              href="mailto:partnerships@babcocktechweek.com"
               className="text-white/60 underline hover:text-white transition-colors"
             >
-              babcocktechweek@gmail.com
+              partnerships@babcocktechweek.com
             </a>
           </p>
         </div>

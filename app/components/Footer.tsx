@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { ORGANISER_LINE, CO_ORGANISER_LINE } from "../lib/site";
 
 export default function Footer() {
   return (
@@ -33,17 +34,14 @@ export default function Footer() {
       </div> */}
 
       {/* Footer Grid */}
-      <div className="max-w-[1200px] mx-auto py-12 md:py-16 px-4 md:px-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
+      <div className="max-w-[1200px] mx-auto py-12 md:py-16 px-4 md:px-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
         {/* Venue & Dates */}
         <div>
           <h4 className="text-[13px] font-bold tracking-widest mb-5 uppercase">
             VENUE &amp; DATES
           </h4>
           <p className="text-[13px] text-gray-400 leading-relaxed">
-            22 - 29 MARCH 2026
-          </p>
-          <p className="text-[13px] text-gray-400 leading-relaxed mt-2">
-            09:00 - 17:00 WAT
+            29 NOV - 3 DEC 2026
           </p>
           <p className="text-[13px] text-gray-400 leading-relaxed mt-3 font-semibold">
             BABCOCK UNIVERSITY, ILISHAN-REMO, OGUN STATE
@@ -57,8 +55,8 @@ export default function Footer() {
           </h4>
           {[
             { label: "CONTACT US", href: "/contact" },
-            { label: "REGISTER YOUR INTEREST 2026", href: "https://luma.com/e57ax8en" },
-            { label: "SESSIONS", href: "/sessions" },
+            // TODO: replace with Dozie's registration/interest page.
+            { label: "REGISTER YOUR INTEREST", href: "/contact" },
             { label: "ABOUT BUCC", href: "https://wearebucc.com" },
           ].map((link) => (
             <a
@@ -69,21 +67,6 @@ export default function Footer() {
             >
               {link.label}
             </a>
-          ))}
-        </div>
-
-        {/* Event Tracks */}
-        <div>
-          <h4 className="text-[13px] font-bold tracking-widest mb-5 uppercase">
-            EVENT TRACKS
-          </h4>
-          {["HEALTHTECH", "FINTECH", "CREATIVETECH"].map((track) => (
-            <span
-              key={track}
-              className="block text-[13px] text-gray-400 mb-3"
-            >
-              {track}
-            </span>
           ))}
         </div>
 
@@ -170,6 +153,13 @@ export default function Footer() {
             ))}
           </div>
         </div>
+      </div>
+
+      {/* Organisers */}
+      <div className="border-t border-white/10 py-8 px-4 md:px-10">
+        <p className="max-w-[1200px] mx-auto text-[13px] text-gray-400 leading-relaxed text-center">
+          {ORGANISER_LINE} {CO_ORGANISER_LINE}
+        </p>
       </div>
 
       {/* Large BTW Logo */}

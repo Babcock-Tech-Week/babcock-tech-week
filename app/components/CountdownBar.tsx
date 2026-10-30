@@ -1,8 +1,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { EVENT_COUNTDOWN_TARGET } from "../lib/site";
 
-const TARGET_DATE = new Date("2026-03-22T09:00:00+01:00"); // March 22, 2026 9AM WAT
+const TARGET_DATE = new Date(EVENT_COUNTDOWN_TARGET); // 29 Nov 2026, 9AM WAT
 
 interface TimeLeft {
   days: number;
@@ -88,7 +89,7 @@ export default function CountdownBar() {
           </svg>
 
           <span className="text-[10px] md:text-[11px] text-gray-400 uppercase tracking-wider hidden lg:block">
-            Until Babcock Tech Week 2026
+            Until Babcock Tech Week 2027
           </span>
 
           <div className="flex items-center gap-2 md:gap-3 font-bold text-sm md:text-base tracking-wide">
