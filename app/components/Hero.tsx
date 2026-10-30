@@ -1,15 +1,21 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { IMAGES } from "../lib/constants";
 import { EVENT_NAME, EVENT_DATES_SHORT, PARTNERSHIPS_EMAIL } from "../lib/site";
 
 // TODO: replace with Dotun's poster and real updates.
 const LATEST_UPDATES: { text: string; href?: string }[] = [
-  { text: "Babcock Tech Week 2027: Friction" },
-  { text: "Lineup and partners announced soon" },
+  { text: "Babcock Tech Week 2027: Friction, 29 Nov - 3 Dec 2026" },
+  { text: "2027 lineup and partners announced soon" },
 ];
+
+// Updates that fit stay for FIT_MS; longer ones hold, scroll to the end, hold, then move on.
+const FIT_MS = 3500;
+const HOLD_MS = 1500;
+const SCROLL_PX_PER_SEC = 40;
+const FADE_MS = 400;
 
 const HERO_IMAGES = [
   "/images/HeroCarousel/IMG_9620.jpg",
@@ -33,6 +39,11 @@ export default function Hero() {
   const [isVisible, setIsVisible] = useState(true);
   const [currentImage, setCurrentImage] = useState(0);
   const [videoEnded, setVideoEnded] = useState(false);
+  const [offset, setOffset] = useState(0);
+  const [scrollMs, setScrollMs] = useState(0);
+  const boxRef = useRef<HTMLDivElement>(null);
+  const textRef = useRef<HTMLSpanElement>(null);
+  const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
 
   // Rotate hero background images only after video ends
   useEffect(() => {
@@ -43,28 +54,50 @@ export default function Hero() {
     return () => clearInterval(imageInterval);
   }, [videoEnded]);
 
-  // Rotate latest updates
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIsVisible(false);
+  // Rotate latest updates, scrolling any that are wider than the strip
+  const advance = (direction: "prev" | "next", delay: number) => {
+    timers.current.forEach(clearTimeout);
+    timers.current = [
+      setTimeout(() => setIsVisible(false), Math.max(0, delay - FADE_MS)),
       setTimeout(() => {
-        setCurrentUpdate((prev) => (prev + 1) % LATEST_UPDATES.length);
+        setCurrentUpdate((prev) =>
+          direction === "next"
+            ? (prev + 1) % LATEST_UPDATES.length
+            : (prev - 1 + LATEST_UPDATES.length) % LATEST_UPDATES.length,
+        );
+        setScrollMs(0);
+        setOffset(0);
         setIsVisible(true);
-      }, 400);
-    }, 3500);
-    return () => clearInterval(interval);
-  }, []);
+      }, delay),
+    ];
+  };
+
+  useEffect(() => {
+    const box = boxRef.current;
+    const text = textRef.current;
+    const overflow = box && text ? Math.max(0, text.scrollWidth - box.clientWidth) : 0;
+    const pending: ReturnType<typeof setTimeout>[] = [];
+    let total = FIT_MS;
+    if (overflow > 0) {
+      const ms = (overflow / SCROLL_PX_PER_SEC) * 1000;
+      pending.push(
+        setTimeout(() => {
+          setScrollMs(ms);
+          setOffset(-overflow);
+        }, HOLD_MS),
+      );
+      total = HOLD_MS + ms + HOLD_MS + FADE_MS;
+    }
+    advance("next", total);
+    return () => {
+      pending.forEach(clearTimeout);
+      timers.current.forEach(clearTimeout);
+    };
+  }, [currentUpdate]);
 
   const goTo = (direction: "prev" | "next") => {
     setIsVisible(false);
-    setTimeout(() => {
-      setCurrentUpdate((prev) =>
-        direction === "next"
-          ? (prev + 1) % LATEST_UPDATES.length
-          : (prev - 1 + LATEST_UPDATES.length) % LATEST_UPDATES.length,
-      );
-      setIsVisible(true);
-    }, 300);
+    advance(direction, 300);
   };
 
   return (
@@ -139,22 +172,32 @@ export default function Hero() {
           <div className="w-px h-6 bg-white/30 shrink-0" />
 
           <div
-            className={`flex-1 min-w-0 truncate text-white/90 text-sm md:text-base font-medium transition-opacity duration-300 ${
+            ref={boxRef}
+            className={`flex-1 min-w-0 overflow-hidden text-white/90 text-sm md:text-base font-medium transition-opacity duration-300 ${
               isVisible ? "opacity-100" : "opacity-0"
             }`}
           >
-            {LATEST_UPDATES[currentUpdate].href ? (
-              <a
-                href={LATEST_UPDATES[currentUpdate].href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline hover:text-white transition-colors"
-              >
-                {LATEST_UPDATES[currentUpdate].text}
-              </a>
-            ) : (
-              LATEST_UPDATES[currentUpdate].text
-            )}
+            <span
+              ref={textRef}
+              className="inline-block whitespace-nowrap ease-linear"
+              style={{
+                transform: `translateX(${offset}px)`,
+                transition: `transform ${scrollMs}ms linear`,
+              }}
+            >
+              {LATEST_UPDATES[currentUpdate].href ? (
+                <a
+                  href={LATEST_UPDATES[currentUpdate].href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline hover:text-white transition-colors"
+                >
+                  {LATEST_UPDATES[currentUpdate].text}
+                </a>
+              ) : (
+                LATEST_UPDATES[currentUpdate].text
+              )}
+            </span>
           </div>
 
           <div className="flex items-center gap-2 shrink-0">
