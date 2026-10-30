@@ -203,8 +203,7 @@ export default function SponsorsSection() {
           Babcock Tech Week 2026 Sponsors & Partners
         </h2>
         <p className="text-gray-500 text-center text-sm md:text-base mb-16 max-w-[600px] mx-auto">
-          Babcock Tech Week is made possible by the generous support of our
-          sponsors and partners.
+          The sponsors and partners of the 2026 edition.
         </p>
 
         {/* Sponsor Tiers */}

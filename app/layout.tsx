@@ -3,6 +3,7 @@ import { Google_Sans } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import "./fonts.css";
+import { SITE_DESCRIPTION, SITE_TITLE, SITE_URL } from "./lib/constants";
 
 const googleSans = Google_Sans({
   variable: "--font-google-sans",
@@ -11,9 +12,24 @@ const googleSans = Google_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Babcock Tech Week | 22-29 March 2026",
-  description:
-    "Join 28,000+ attendees at Babcock Tech Week 2026 – the leading technology event with 500+ cutting-edge innovations and 550+ speakers.",
+  metadataBase: new URL(SITE_URL),
+  title: SITE_TITLE,
+  description: SITE_DESCRIPTION,
+  alternates: { canonical: "/" },
+  // TODO: add openGraph/twitter share image (1200x630) once the poster is supplied.
+  openGraph: {
+    type: "website",
+    locale: "en_NG",
+    siteName: "Babcock Tech Week",
+    url: "/",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+  },
 };
 
 export default function RootLayout({

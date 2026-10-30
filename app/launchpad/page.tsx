@@ -4,6 +4,7 @@ import ComingSoon from "../components/ComingSoon";
 export const metadata: Metadata = {
   title: "The Launchpad | Babcock Tech Week",
   description: "Discover The Launchpad — where innovation meets opportunity at Babcock Tech Week.",
+  alternates: { canonical: "/launchpad" },
 };
 
 export default function LaunchpadPage() {

@@ -3,15 +3,16 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   redirects: async () => {
     return [
+      // TODO: point /calendar at the 2027 schedule once it exists.
       {
         source: "/calendar",
-        destination: "https://lu.ma/btw26",
+        destination: "/contact",
         permanent: false,
       },
+      // TODO: point /hackathon at the 2027 hackathon page/form once it exists.
       {
         source: "/hackathon",
-        destination:
-          "https://docs.google.com/forms/d/1eG0InqhmCQQBCGAGVDXqhGX5ONaNkERglKmrhiSVqjk/edit?ts=69c06368",
+        destination: "/contact",
         permanent: false,
       },
       {

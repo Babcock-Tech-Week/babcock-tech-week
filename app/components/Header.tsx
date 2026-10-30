@@ -71,7 +71,7 @@ export default function Header({ solid = false, scrollThreshold }: { solid?: boo
             />
 
             <div className="text-xs font-bold leading-relaxed">
-              <div>22-29 MARCH 2026</div>
+              <div>29 NOV - 3 DEC 2026</div>
               <div>BABCOCK UNIVERSITY</div>
             </div>
           </div>

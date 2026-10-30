@@ -52,21 +52,6 @@ export default function ComingSoon({ title, description }: ComingSoonProps) {
         </Link>
       </main>
 
-      {/* Bottom divider + message */}
-      <footer className="pb-10 pt-6 px-6">
-        <div className="max-w-md mx-auto">
-          <div className="w-full h-px bg-white/10 mb-6" />
-          <p className="text-center text-sm text-white/40">
-            Have suggestions for this section? Reach out at{" "}
-            <a
-              href="mailto:babcocktechweek@gmail.com"
-              className="text-white/60 underline hover:text-white transition-colors"
-            >
-              babcocktechweek@gmail.com
-            </a>
-          </p>
-        </div>
-      </footer>
     </div>
   );
 }

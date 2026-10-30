@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { ORGANISER_LINE } from "../lib/constants";
 
 export default function Footer() {
   return (
@@ -40,7 +41,7 @@ export default function Footer() {
             VENUE &amp; DATES
           </h4>
           <p className="text-[13px] text-gray-400 leading-relaxed">
-            22 - 29 MARCH 2026
+            29 NOV - 3 DEC 2026
           </p>
           <p className="text-[13px] text-gray-400 leading-relaxed mt-2">
             09:00 - 17:00 WAT
@@ -57,7 +58,8 @@ export default function Footer() {
           </h4>
           {[
             { label: "CONTACT US", href: "/contact" },
-            { label: "REGISTER YOUR INTEREST 2026", href: "https://luma.com/e57ax8en" },
+            // TODO: point to the 2027 registration/interest link once it exists.
+            { label: "REGISTER YOUR INTEREST", href: "/contact" },
             { label: "SESSIONS", href: "/sessions" },
             { label: "ABOUT BUCC", href: "https://wearebucc.com" },
           ].map((link) => (
@@ -107,6 +109,10 @@ export default function Footer() {
             />
             <span className="text-lg font-bold tracking-wider">BUCC</span>
           </a>
+
+          <p className="text-[13px] text-gray-400 leading-relaxed mb-6">
+            {ORGANISER_LINE}
+          </p>
 
           <h4 className="text-[13px] font-bold tracking-widest mb-4 uppercase text-gray-400">
             IN COLLABORATION WITH

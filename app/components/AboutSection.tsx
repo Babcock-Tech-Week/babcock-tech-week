@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { IMAGES } from "../lib/constants";
+import Link from "next/link";
+import { EVENT_DATES, IMAGES, ORGANISER_LINE } from "../lib/constants";
 
 export default function AboutSection() {
   return (
@@ -26,47 +27,34 @@ export default function AboutSection() {
         {/* Content */}
         <div>
           <h2 className="text-base font-bold text-lime tracking-widest uppercase mb-4">
-            Latest Updates
+            About
           </h2>
 
           <h3 className="text-2xl md:text-[32px] font-bold mb-6 leading-tight">
-            Babcock Tech Week: Driving Innovation in Africa
+            Babcock Tech Week 2027: Friction
           </h3>
 
           <p className="text-[15px] text-gray-300 leading-relaxed mb-5">
-            Babcock Tech Week is the premier technology event at Babcock
-            University, bringing together students, industry leaders, and
-            innovators from across Africa.
+            Babcock Tech Week 2027, themed &ldquo;Friction&rdquo;, is the second
+            edition of Babcock University&apos;s annual technology week.
           </p>
 
           <p className="text-[15px] text-gray-300 leading-relaxed mb-5">
-            Over 28,000 attendees, tech enthusiasts, and visionaries across all
-            technology verticals come together at Babcock Tech Week to learn,
-            network, and shape the future of technology. With over 400
-            exhibitors, #BTW is your gateway to connecting with leading solution
-            providers and the next generation of tech talent.
-          </p>
-
-          <p className="text-[15px] text-gray-300 leading-relaxed mb-4">
-            Babcock Tech Week 2026 returns on{" "}
-            <strong className="text-white underline">
-              22-29 March 2026
-            </strong>
-            , featuring exhibitions, workshops, hackathons, panel discussions,
-            and keynote sessions from global tech leaders.
+            It runs from{" "}
+            <strong className="text-white underline">{EVENT_DATES}</strong> at
+            Babcock University, Ilishan-Remo, Ogun State, Nigeria.
           </p>
 
           <p className="text-[15px] text-gray-300 leading-relaxed mb-8">
-            Don&apos;t miss the opportunity to be part of West Africa&apos;s
-            largest student-led technology event.
+            {ORGANISER_LINE}
           </p>
 
-          <a
-            href="#"
+          <Link
+            href="/contact"
             className="inline-block bg-white text-black py-4 px-9 rounded-full text-[13px] font-bold tracking-widest uppercase hover:bg-gray-200 transition-all"
           >
-            REGISTER NOW
-          </a>
+            CONTACT US
+          </Link>
         </div>
       </div>
     </section>

@@ -2,14 +2,12 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { IMAGES } from "../lib/constants";
+import { IMAGES, PARTNERSHIPS_EMAIL } from "../lib/constants";
 
-const LATEST_UPDATES = [
-  { text: "Tethered Hackathon 2026 winners!" },
-  { text: "Team Yami — 1st place!" },
-  { text: "Team BRAIN — 2nd place!" },
-  { text: "Team MyCampusPal — 3rd place!" },
-  { text: "View The Terms & Conditions", href: "/hackathon/terms" },
+// TODO: replace the placeholder with real 2027 announcements.
+const LATEST_UPDATES: { text: string; href?: string }[] = [
+  { text: "Babcock Tech Week 2027: Friction, 29 Nov - 3 Dec 2026" },
+  { text: "2027 lineup and partners announced soon" },
 ];
 
 const HERO_IMAGES = [
@@ -114,7 +112,7 @@ export default function Hero() {
 
           {/* Date & Venue */}
           <p className="text-lg md:text-xl font-normal mt-2 tracking-wide">
-            22-29 March 2026, Babcock University
+            29 Nov - 3 Dec 2026, Babcock University
           </p>
 
           {/* CTA Buttons */}
@@ -128,7 +126,7 @@ export default function Hero() {
               VIEW SCHEDULE
             </a>
             <a
-              href="mailto:babcocktechweek@gmail.com"
+              href={`mailto:${PARTNERSHIPS_EMAIL}`}
               className="bg-black/85 text-white py-4 px-8 md:px-10 rounded-full text-xs md:text-sm font-extrabold tracking-widest uppercase border border-white/20 hover:bg-white/15 transition-all cursor-pointer backdrop-blur-sm"
             >
               PARTNER WITH US

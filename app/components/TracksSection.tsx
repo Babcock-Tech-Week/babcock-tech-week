@@ -101,11 +101,12 @@ export default function TracksSection() {
         </div>
 
         {/* CTA */}
+        {/* TODO: point to the 2027 registration/interest link once it exists. */}
         <a
-          href="https://luma.com/e57ax8en"
+          href="/contact"
           className="inline-block bg-white text-black py-4 px-9 rounded-full text-[13px] font-bold tracking-widest uppercase hover:bg-gray-200 transition-all"
         >
-          REGISTER NOW
+          REGISTER YOUR INTEREST
         </a>
       </div>
     </section>

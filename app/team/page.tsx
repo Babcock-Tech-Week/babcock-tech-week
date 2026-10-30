@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Team | Babcock Tech Week",
   description:
     "Meet the team behind Babcock Tech Week — the students, organisers, and partners making it all happen.",
+  alternates: { canonical: "/team" },
 };
 
 export default function TeamPage() {

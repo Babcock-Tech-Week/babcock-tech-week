@@ -4,6 +4,7 @@ import ComingSoon from "../components/ComingSoon";
 export const metadata: Metadata = {
   title: "Sessions | Babcock Tech Week",
   description: "Browse keynotes, panels, firesides, and workshops at Babcock Tech Week.",
+  alternates: { canonical: "/sessions" },
 };
 
 export default function SessionsPage() {

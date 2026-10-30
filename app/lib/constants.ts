@@ -1,3 +1,23 @@
+export const SITE_URL = "https://www.babcocktechweek.com";
+
+export const INFORTAINMENT_LEGAL_NAME = "The Infortainment Company Limited";
+
+export const EVENT_NAME = "Babcock Tech Week 2027";
+export const EVENT_THEME = "Friction";
+export const EVENT_DATES = "29 Nov - 3 Dec 2026";
+export const EVENT_START_DATE = "2026-11-29";
+export const EVENT_END_DATE = "2026-12-03";
+export const COUNTDOWN_TARGET = "2026-11-29T09:00:00+01:00";
+
+export const PARTNERSHIPS_EMAIL = "partnerships@babcocktechweek.com";
+
+export const SITE_TITLE =
+  "Babcock Tech Week 2027: Friction | 29 Nov - 3 Dec 2026";
+export const SITE_DESCRIPTION =
+  "Babcock Tech Week 2027 (Friction) is the second edition of Babcock University's annual technology week, 29 Nov - 3 Dec 2026. Organised by BUCC, GDG On Campus Babcock and IEEE Babcock Student Branch; co-organised by The Infortainment Company.";
+
+export const ORGANISER_LINE = `Organised by the Babcock University Computer Club (BUCC), Google Developer Groups On Campus Babcock and IEEE Babcock Student Branch. Co-organised by ${INFORTAINMENT_LEGAL_NAME}, Babcock Tech Week's operational and organisational partner.`;
+
 export const IMAGES = {
   logo: { src: "/logo.svg", width: 100, height: 100 },
   heroBg: { src: "/images/hero-bg.jpeg", alt: "Tech Week Conference" },

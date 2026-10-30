@@ -13,7 +13,7 @@ export default function ShowsCtaSection() {
     <section className="bg-linear-to-b from-[#0a0a2e] to-black py-20 md:py-24 px-4 md:px-10 text-center">
       <div className="max-w-[1200px] mx-auto">
         <h2 className="text-2xl md:text-[40px] font-bold mb-6 leading-tight">
-          The Babcock Tech Week will run from 22-29 March 2026
+          The Babcock Tech Week will run from 29 Nov - 3 Dec 2026
         </h2>
 
         <p className="text-base text-gray-300 mb-2">
