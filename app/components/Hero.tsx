@@ -7,8 +7,8 @@ import { EVENT_NAME, EVENT_DATES_SHORT, PARTNERSHIPS_EMAIL } from "../lib/site";
 
 // TODO: replace with Dotun's poster and real updates.
 const LATEST_UPDATES: { text: string; href?: string }[] = [
-  { text: "Babcock Tech Week 2027: Friction, 29 Nov - 3 Dec 2026" },
-  { text: "2027 lineup and partners announced soon" },
+  { text: "Babcock Tech Week 2027: Friction" },
+  { text: "Lineup and partners announced soon" },
 ];
 
 const HERO_IMAGES = [
@@ -139,7 +139,7 @@ export default function Hero() {
           <div className="w-px h-6 bg-white/30 shrink-0" />
 
           <div
-            className={`flex-1 text-white/90 text-sm md:text-base font-medium transition-opacity duration-300 ${
+            className={`flex-1 min-w-0 truncate text-white/90 text-sm md:text-base font-medium transition-opacity duration-300 ${
               isVisible ? "opacity-100" : "opacity-0"
             }`}
           >
