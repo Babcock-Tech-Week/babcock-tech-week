@@ -115,7 +115,7 @@ export default function Hero() {
               !videoEnded ? "opacity-100" : "opacity-0"
             }`}
           >
-            <source src="/images/HeroCarousel/BTW%20Animation%20-%20Reel.mp4" type="video/mp4" />
+            <source src="/images/HeroCarousel/friction-announcement.mp4" type="video/mp4" />
           </video>
 
           {/* Image slides */}
