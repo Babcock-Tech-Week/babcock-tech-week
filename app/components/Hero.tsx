@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import { IMAGES } from "../lib/constants";
 import { EVENT_NAME, EVENT_DATES_SHORT, PARTNERSHIPS_EMAIL } from "../lib/site";
 
 // TODO: replace with Dotun's poster and real updates.
@@ -137,17 +136,9 @@ export default function Hero() {
         {/* Content */}
         <div className={`relative z-10 text-center flex flex-col items-center gap-6 px-5 mt-15 transition-opacity duration-700 ${videoEnded ? "opacity-100" : "opacity-0"}`}>
           <h1 className="sr-only">{EVENT_NAME}</h1>
-          <Image
-            src={IMAGES.logo.src}
-            alt="Logo"
-            width={IMAGES.logo.width}
-            height={IMAGES.logo.height}
-            className="w-72 lg:w-96"
-          />
-
-          {/* Date & Venue */}
+          {/* Date */}
           <p className="text-lg md:text-xl font-normal mt-2 tracking-wide">
-            {EVENT_DATES_SHORT}, Babcock University
+            {EVENT_DATES_SHORT}
           </p>
 
           {/* CTA Buttons */}
