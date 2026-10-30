@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "../../lib/seo";
 import ComingSoon from "../_components/ComingSoon";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Sessions | Babcock Tech Week",
-  description: "Browse keynotes, panels, firesides, and workshops at Babcock Tech Week.",
-  alternates: { canonical: "/2026/sessions" },
-};
+  description:
+    "Browse keynotes, panels, firesides, and workshops at Babcock Tech Week.",
+  path: "/2026/sessions",
+});
 
 export default function SessionsPage() {
   return (

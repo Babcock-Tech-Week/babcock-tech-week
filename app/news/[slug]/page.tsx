@@ -5,6 +5,7 @@ import Link from "next/link";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import { NEWS_ARTICLES } from "../../lib/newsData";
+import { pageMetadata } from "../../lib/seo";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -21,10 +22,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const article = NEWS_ARTICLES.find((a) => a.slug === slug);
   if (!article) return { title: "Article Not Found" };
 
-  return {
+  return pageMetadata({
     title: `${article.title} | Babcock Tech Week`,
     description: article.excerpt,
-  };
+    path: `/news/${slug}`,
+  });
 }
 
 export default async function NewsArticlePage({ params }: Props) {
@@ -54,7 +56,7 @@ export default async function NewsArticlePage({ params }: Props) {
         {/* SHOW NEWS Banner Bar */}
         <div
           style={{
-            background: "#1c1c1c", // Dark grey taken from Singapore Tech Week
+            background: "#1c1c1c",
             padding: "110px 16px 50px", // Larger size to accommodate transparent header
             textAlign: "center",
           }}

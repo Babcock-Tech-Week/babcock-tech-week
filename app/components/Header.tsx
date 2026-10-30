@@ -8,9 +8,8 @@ import Image from "next/image";
 const navLinks = [
   { label: "HOME", href: "/" },
   // { label: "EDITIONS", href: "/editions" },
-  // { label: "SESSIONS", href: "/sessions" },
   // { label: "THE LAUNCHPAD", href: "/launchpad" },
-  { label: "TEAM", href: "/team" },
+  { label: "2026 ARCHIVE", href: "/2026" },
   { label: "CONTACT", href: "/contact" },
 ];
 
@@ -71,7 +70,7 @@ export default function Header({ solid = false, scrollThreshold }: { solid?: boo
             />
 
             <div className="text-xs font-bold leading-relaxed">
-              <div>22-29 MARCH 2026</div>
+              <div>29 NOV - 3 DEC 2026</div>
               <div>BABCOCK UNIVERSITY</div>
             </div>
           </div>

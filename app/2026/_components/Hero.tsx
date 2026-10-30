@@ -120,7 +120,7 @@ export default function Hero() {
           {/* CTA Buttons */}
           <div className="flex gap-4 md:gap-5 mt-4 flex-wrap justify-center">
             <a
-              href="/calendar"
+              href="/2026/calendar"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-white text-black py-4 px-8 md:px-10 rounded-full text-xs md:text-sm font-extrabold tracking-widest uppercase hover:bg-gray-200 transition-all cursor-pointer shadow-lg"
@@ -128,7 +128,7 @@ export default function Hero() {
               VIEW SCHEDULE
             </a>
             <a
-              href="mailto:babcocktechweek@gmail.com"
+              href="mailto:partnerships@babcocktechweek.com"
               className="bg-black/85 text-white py-4 px-8 md:px-10 rounded-full text-xs md:text-sm font-extrabold tracking-widest uppercase border border-white/20 hover:bg-white/15 transition-all cursor-pointer backdrop-blur-sm"
             >
               PARTNER WITH US

@@ -55,7 +55,7 @@ export default function Header({ solid = false, scrollThreshold }: { solid?: boo
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-1000 transition-all duration-300 ${(scrolled || solid)
+        className={`fixed top-10 sm:top-9 left-0 right-0 z-1000 transition-all duration-300 ${(scrolled || solid)
             ? "bg-black/90 backdrop-blur-md border-b border-white/5"
             : "bg-transparent"
           }`}

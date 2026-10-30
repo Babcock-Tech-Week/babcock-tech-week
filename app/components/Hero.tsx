@@ -3,13 +3,12 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { IMAGES } from "../lib/constants";
+import { EVENT_NAME, EVENT_DATES_SHORT, PARTNERSHIPS_EMAIL } from "../lib/site";
 
-const LATEST_UPDATES = [
-  { text: "Tethered Hackathon 2026 winners!" },
-  { text: "Team Yami — 1st place!" },
-  { text: "Team BRAIN — 2nd place!" },
-  { text: "Team MyCampusPal — 3rd place!" },
-  { text: "View The Terms & Conditions", href: "/hackathon/terms" },
+// TODO: replace with Dotun's poster and real updates.
+const LATEST_UPDATES: { text: string; href?: string }[] = [
+  { text: "Babcock Tech Week 2027: Friction, 29 Nov - 3 Dec 2026" },
+  { text: "2027 lineup and partners announced soon" },
 ];
 
 const HERO_IMAGES = [
@@ -104,6 +103,7 @@ export default function Hero() {
 
         {/* Content */}
         <div className={`relative z-10 text-center flex flex-col items-center gap-6 px-5 mt-15 transition-opacity duration-700 ${videoEnded ? "opacity-100" : "opacity-0"}`}>
+          <h1 className="sr-only">{EVENT_NAME}</h1>
           <Image
             src={IMAGES.logo.src}
             alt="Logo"
@@ -114,21 +114,13 @@ export default function Hero() {
 
           {/* Date & Venue */}
           <p className="text-lg md:text-xl font-normal mt-2 tracking-wide">
-            22-29 March 2026, Babcock University
+            {EVENT_DATES_SHORT}, Babcock University
           </p>
 
           {/* CTA Buttons */}
           <div className="flex gap-4 md:gap-5 mt-4 flex-wrap justify-center">
             <a
-              href="/calendar"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-white text-black py-4 px-8 md:px-10 rounded-full text-xs md:text-sm font-extrabold tracking-widest uppercase hover:bg-gray-200 transition-all cursor-pointer shadow-lg"
-            >
-              VIEW SCHEDULE
-            </a>
-            <a
-              href="mailto:babcocktechweek@gmail.com"
+              href={`mailto:${PARTNERSHIPS_EMAIL}`}
               className="bg-black/85 text-white py-4 px-8 md:px-10 rounded-full text-xs md:text-sm font-extrabold tracking-widest uppercase border border-white/20 hover:bg-white/15 transition-all cursor-pointer backdrop-blur-sm"
             >
               PARTNER WITH US

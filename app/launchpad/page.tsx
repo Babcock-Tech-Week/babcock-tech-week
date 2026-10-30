@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "../lib/seo";
 import ComingSoon from "../components/ComingSoon";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "The Launchpad | Babcock Tech Week",
-  description: "Discover The Launchpad — where innovation meets opportunity at Babcock Tech Week.",
-};
+  description:
+    "Discover The Launchpad — where innovation meets opportunity at Babcock Tech Week.",
+  path: "/launchpad",
+});
 
 export default function LaunchpadPage() {
   return (

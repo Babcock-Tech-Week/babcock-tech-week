@@ -1,11 +1,14 @@
-"use client";
-
 import Image from "next/image";
-import { IMAGES } from "../lib/constants";
+import Link from "next/link";
+import {
+  EVENT_DATES_SHORT,
+  ORGANISER_LINE,
+  CO_ORGANISER_LINE,
+} from "../lib/site";
 
 export default function AboutSection() {
   return (
-    <section 
+    <section
       className="bg-black py-16 md:py-24 px-4 md:px-10"
       style={{
         backgroundImage: "radial-gradient(rgba(255, 255, 255, 0.08) 2px, transparent 2px)",
@@ -16,9 +19,10 @@ export default function AboutSection() {
         {/* Image */}
         <div className="rounded-2xl overflow-hidden relative h-[350px] md:h-[500px]">
           <Image
-            src={IMAGES.about.src}
-            alt={IMAGES.about.alt}
+            src="/images/HeroCarousel/IMG_9640.jpg"
+            alt="A moment from Babcock Tech Week 2026"
             fill
+            sizes="(max-width: 768px) 100vw, 50vw"
             className="object-cover"
           />
         </div>
@@ -26,47 +30,35 @@ export default function AboutSection() {
         {/* Content */}
         <div>
           <h2 className="text-base font-bold text-lime tracking-widest uppercase mb-4">
-            Latest Updates
+            About
           </h2>
 
           <h3 className="text-2xl md:text-[32px] font-bold mb-6 leading-tight">
-            Babcock Tech Week: Driving Innovation in Africa
+            Babcock Tech Week 2027: Friction
           </h3>
 
           <p className="text-[15px] text-gray-300 leading-relaxed mb-5">
-            Babcock Tech Week is the premier technology event at Babcock
-            University, bringing together students, industry leaders, and
-            innovators from across Africa.
+            Babcock Tech Week 2027 is the second edition of Babcock
+            University&apos;s annual technology week. It takes place from{" "}
+            <strong className="text-white">{EVENT_DATES_SHORT}</strong> at Babcock
+            University, Ilishan-Remo, Ogun State, Nigeria. The theme is
+            &ldquo;Friction&rdquo;.
           </p>
 
           <p className="text-[15px] text-gray-300 leading-relaxed mb-5">
-            Over 28,000 attendees, tech enthusiasts, and visionaries across all
-            technology verticals come together at Babcock Tech Week to learn,
-            network, and shape the future of technology. With over 400
-            exhibitors, #BTW is your gateway to connecting with leading solution
-            providers and the next generation of tech talent.
-          </p>
-
-          <p className="text-[15px] text-gray-300 leading-relaxed mb-4">
-            Babcock Tech Week 2026 returns on{" "}
-            <strong className="text-white underline">
-              22-29 March 2026
-            </strong>
-            , featuring exhibitions, workshops, hackathons, panel discussions,
-            and keynote sessions from global tech leaders.
+            {ORGANISER_LINE}
           </p>
 
           <p className="text-[15px] text-gray-300 leading-relaxed mb-8">
-            Don&apos;t miss the opportunity to be part of West Africa&apos;s
-            largest student-led technology event.
+            {CO_ORGANISER_LINE}
           </p>
 
-          <a
-            href="#"
+          <Link
+            href="/contact"
             className="inline-block bg-white text-black py-4 px-9 rounded-full text-[13px] font-bold tracking-widest uppercase hover:bg-gray-200 transition-all"
           >
-            REGISTER NOW
-          </a>
+            CONTACT
+          </Link>
         </div>
       </div>
     </section>
