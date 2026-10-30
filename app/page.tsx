@@ -4,7 +4,6 @@ import AboutSection from "./components/AboutSection";
 import AnnouncedSoon from "./components/AnnouncedSoon";
 import Footer from "./components/Footer";
 import CountdownBar from "./components/CountdownBar";
-import TracksSection from "./components/TracksSection";
 import StructuredData from "./components/StructuredData";
 // Hidden until real figures are supplied:
 // import StatsGrid from "./components/StatsGrid";
@@ -19,7 +18,7 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <TracksSection />
+        {/* TODO: restore TracksSection once the 2027 programme and tracks are confirmed. */}
         <AboutSection />
         <AnnouncedSoon />
       </main>

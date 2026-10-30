@@ -20,10 +20,10 @@ export default function AnnouncedSoon() {
           be announced here.
         </p>
         <Link
-          href="/editions"
+          href="/2026"
           className="inline-block bg-white text-black py-4 px-9 rounded-full text-[13px] font-bold tracking-widest uppercase hover:bg-gray-200 transition-all"
         >
-          2026 EDITION ARCHIVE
+          2026 ARCHIVE
         </Link>
       </div>
     </section>

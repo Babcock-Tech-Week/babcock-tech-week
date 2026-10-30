@@ -2,42 +2,37 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import SpeakersSection from "../components/SpeakersSection";
-import SponsorsSection from "../components/SponsorsSection";
-import NewsSection from "../components/NewsSection";
+import { pageSocial } from "../lib/seo";
+
+const TITLE = "Editions | Babcock Tech Week";
+const DESCRIPTION = "Current and past editions of Babcock Tech Week.";
 
 export const metadata: Metadata = {
-  title: "Editions | Babcock Tech Week",
-  description:
-    "Archive of the 2026 edition of Babcock Tech Week: speakers, sponsors and partners, and news coverage.",
-  alternates: { canonical: "/editions" },
+  title: TITLE,
+  description: DESCRIPTION,
+  ...pageSocial("/editions", TITLE, DESCRIPTION),
 };
 
 export default function EditionsPage() {
   return (
     <>
       <Header solid />
-      <main>
-        <section className="bg-black text-white pt-36 pb-12 px-4 md:px-10 text-center">
-          <div className="max-w-[800px] mx-auto">
-            <h1 className="text-3xl md:text-5xl font-extrabold mb-4">
-              2026 edition archive
-            </h1>
-            <p className="text-gray-400 text-sm md:text-base mb-6">
-              Speakers, sponsors and partners, and news coverage from Babcock
-              Tech Week 2026 (March 2026).
-            </p>
-            <Link
-              href="/team"
-              className="text-sm underline text-gray-300 hover:text-white transition-colors"
-            >
-              Meet the 2026 team
-            </Link>
-          </div>
-        </section>
-        <SpeakersSection />
-        <SponsorsSection />
-        <NewsSection />
+      <main className="bg-black text-white min-h-[70vh] px-6 pt-32 pb-24">
+        <div className="max-w-xl mx-auto text-center">
+          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-8">
+            Editions
+          </h1>
+          {/* TODO: add the Babcock Tech Week 2027 entry here. */}
+          <Link
+            href="/2026"
+            className="block border border-white/20 rounded-2xl p-6 hover:border-white/50 transition-colors"
+          >
+            <span className="block text-xl font-bold">Babcock Tech Week 2026</span>
+            <span className="block text-sm text-white/60 mt-1">
+              The founding edition, 22-29 March 2026
+            </span>
+          </Link>
+        </div>
       </main>
       <Footer />
     </>

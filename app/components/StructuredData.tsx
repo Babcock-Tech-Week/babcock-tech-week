@@ -55,12 +55,11 @@ const event = {
   organizer: organizers,
 };
 
-const organization = {
+const website = {
   "@context": "https://schema.org",
-  "@type": "Organization",
+  "@type": "WebSite",
   name: "Babcock Tech Week",
   url: SITE_URL,
-  organizer: organizers,
 };
 
 const serialize = (data: object) =>
@@ -75,7 +74,7 @@ export default function StructuredData() {
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: serialize(organization) }}
+        dangerouslySetInnerHTML={{ __html: serialize(website) }}
       />
     </>
   );

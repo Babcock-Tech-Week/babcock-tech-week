@@ -34,7 +34,7 @@ export default function Footer() {
       </div> */}
 
       {/* Footer Grid */}
-      <div className="max-w-[1200px] mx-auto py-12 md:py-16 px-4 md:px-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
+      <div className="max-w-[1200px] mx-auto py-12 md:py-16 px-4 md:px-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
         {/* Venue & Dates */}
         <div>
           <h4 className="text-[13px] font-bold tracking-widest mb-5 uppercase">
@@ -43,9 +43,7 @@ export default function Footer() {
           <p className="text-[13px] text-gray-400 leading-relaxed">
             29 NOV - 3 DEC 2026
           </p>
-          <p className="text-[13px] text-gray-400 leading-relaxed mt-2">
-            09:00 - 17:00 WAT
-          </p>
+          {/* TODO: restore daily hours once the 2027 programme is confirmed. */}
           <p className="text-[13px] text-gray-400 leading-relaxed mt-3 font-semibold">
             BABCOCK UNIVERSITY, ILISHAN-REMO, OGUN STATE
           </p>
@@ -60,7 +58,7 @@ export default function Footer() {
             { label: "CONTACT US", href: "/contact" },
             // TODO: point to the 2027 registration/interest link once it exists.
             { label: "REGISTER YOUR INTEREST", href: "/contact" },
-            { label: "SESSIONS", href: "/sessions" },
+            // TODO: restore SESSIONS once the 2027 programme is published.
             { label: "ABOUT BUCC", href: "https://wearebucc.com" },
           ].map((link) => (
             <a
@@ -74,20 +72,7 @@ export default function Footer() {
           ))}
         </div>
 
-        {/* Event Tracks */}
-        <div>
-          <h4 className="text-[13px] font-bold tracking-widest mb-5 uppercase">
-            EVENT TRACKS
-          </h4>
-          {["HEALTHTECH", "FINTECH", "CREATIVETECH"].map((track) => (
-            <span
-              key={track}
-              className="block text-[13px] text-gray-400 mb-3"
-            >
-              {track}
-            </span>
-          ))}
-        </div>
+        {/* TODO: restore EVENT TRACKS once the 2027 tracks are confirmed. */}
 
         {/* Organised By + Social */}
         <div>

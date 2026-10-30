@@ -15,6 +15,21 @@ const nextConfig: NextConfig = {
         destination: "/contact",
         permanent: false,
       },
+      // 2026 archive
+      {
+        source: "/2026/calendar",
+        destination: "https://lu.ma/btw26",
+        permanent: false,
+      },
+      {
+        source: "/2026/hackathon",
+        destination:
+          "https://docs.google.com/forms/d/1eG0InqhmCQQBCGAGVDXqhGX5ONaNkERglKmrhiSVqjk/edit?ts=69c06368",
+        permanent: false,
+      },
+      { source: "/news/:slug", destination: "/2026/news/:slug", statusCode: 301 },
+      { source: "/sessions", destination: "/2026/sessions", statusCode: 301 },
+      { source: "/team", destination: "/2026/team", statusCode: 301 },
       {
         source: "/hackathon/terms",
         destination:

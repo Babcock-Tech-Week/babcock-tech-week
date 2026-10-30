@@ -2,9 +2,10 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
-import { NEWS_ARTICLES } from "../../lib/newsData";
+import Header from "../../_components/Header";
+import Footer from "../../_components/Footer";
+import { NEWS_ARTICLES } from "../../_lib/newsData";
+import { pageSocial } from "../../../lib/seo";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -24,7 +25,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${article.title} | Babcock Tech Week`,
     description: article.excerpt,
-    alternates: { canonical: `/news/${slug}` },
+    ...pageSocial(
+      `/2026/news/${slug}`,
+      `${article.title} | Babcock Tech Week`,
+      article.excerpt,
+    ),
   };
 }
 
@@ -188,7 +193,7 @@ export default async function NewsArticlePage({ params }: Props) {
           <div style={{ display: "flex", justifyContent: "center", gap: "60px", marginTop: "20px" }}>
             {prevArticle && (
               <Link
-                href={`/news/${prevArticle.slug}`}
+                href={`/2026/news/${prevArticle.slug}`}
                 style={{
                   display: "inline-flex",
                   flexDirection: "column",
@@ -225,7 +230,7 @@ export default async function NewsArticlePage({ params }: Props) {
 
             {nextArticle && (
               <Link
-                href={`/news/${nextArticle.slug}`}
+                href={`/2026/news/${nextArticle.slug}`}
                 style={{
                   display: "inline-flex",
                   flexDirection: "column",

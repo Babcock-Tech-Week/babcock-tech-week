@@ -10,7 +10,8 @@ const navLinks = [
   // { label: "EDITIONS", href: "/editions" },
   // { label: "SESSIONS", href: "/sessions" },
   // { label: "THE LAUNCHPAD", href: "/launchpad" },
-  { label: "TEAM", href: "/team" },
+  // TODO: restore TEAM once the 2027 team page exists (/team now redirects to the 2026 archive).
+  // { label: "TEAM", href: "/team" },
   { label: "CONTACT", href: "/contact" },
 ];
 

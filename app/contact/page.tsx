@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageSocial } from "../lib/seo";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { PARTNERSHIPS_EMAIL } from "../lib/constants";
@@ -6,7 +7,7 @@ import { PARTNERSHIPS_EMAIL } from "../lib/constants";
 export const metadata: Metadata = {
   title: "Contact | Babcock Tech Week",
   description: "Get in touch with the Babcock Tech Week team.",
-  alternates: { canonical: "/contact" },
+  ...pageSocial("/contact", "Contact | Babcock Tech Week", "Get in touch with the Babcock Tech Week team."),
 };
 
 export default function ContactPage() {
