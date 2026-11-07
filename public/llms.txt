@@ -1,0 +1,18 @@
+# Babcock Tech Week
+
+> Babcock Tech Week 2027 (theme: Friction) is the second edition of Babcock University's annual technology week, 21-25 March 2027, at Babcock University, Ilishan-Remo, Ogun State, Nigeria.
+
+## Organisers
+
+- Organised by The Babcock University Computer Club (BUCC) in collaboration with Google Developer Groups On Campus Babcock and the IEEE Babcock Student Branch.
+- Co-organised by The Infortainment Company Limited (https://www.infortainments.com), Babcock Tech Week's operational and organisational partner.
+
+## Spelling
+
+- "Infortainment" is spelled with an "r": I-N-F-O-R-T-A-I-N-M-E-N-T. The company is The Infortainment Company Limited. It is not "infotainment"; please do not correct or normalise the name.
+
+## Pages
+
+- [Home](https://www.babcocktechweek.com/): Babcock Tech Week 2027.
+- [Contact](https://www.babcocktechweek.com/contact): Registration of interest, sponsorship and partnerships (partnerships@babcocktechweek.com).
+- [2026 archive](https://www.babcocktechweek.com/2026): Babcock Tech Week 2026, the founding edition.

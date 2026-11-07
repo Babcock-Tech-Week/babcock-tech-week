@@ -2,11 +2,12 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import { EVENT_NAME, EVENT_DATES_SHORT, PARTNERSHIPS_EMAIL } from "../lib/site";
+import { IMAGES } from "../lib/constants";
+import { EVENT_NAME, EVENT_DATES_SHORT, AGENDA_URL, PARTNERSHIPS_EMAIL } from "../lib/site";
 
 // TODO: replace with Dotun's poster and real updates.
 const LATEST_UPDATES: { text: string; href?: string }[] = [
-  { text: "Babcock Tech Week 2027: Friction, 29 Nov - 3 Dec 2026" },
+  { text: `Babcock Tech Week 2027: Friction, ${EVENT_DATES_SHORT}` },
   { text: "2027 lineup and partners announced soon" },
 ];
 
@@ -136,6 +137,14 @@ export default function Hero() {
         {/* Content */}
         <div className={`relative z-10 text-center flex flex-col items-center gap-6 px-5 mt-15 transition-opacity duration-700 ${videoEnded ? "opacity-100" : "opacity-0"}`}>
           <h1 className="sr-only">{EVENT_NAME}</h1>
+          <Image
+            src={IMAGES.logo.src}
+            alt="Babcock Tech Week 2027"
+            width={725}
+            height={246}
+            className="w-72 lg:w-96 h-auto"
+          />
+
           {/* Date */}
           <p className="text-lg md:text-xl font-normal mt-2 tracking-wide">
             {EVENT_DATES_SHORT}
@@ -143,11 +152,29 @@ export default function Hero() {
 
           {/* CTA Buttons */}
           <div className="flex gap-4 md:gap-5 mt-4 flex-wrap justify-center">
+            {AGENDA_URL ? (
+              <a
+                href={AGENDA_URL}
+                download
+                className="font-mono bg-black/85 text-white py-4 px-8 md:px-10 rounded-full text-xs md:text-sm font-extrabold tracking-widest uppercase border border-white/20 hover:bg-white/15 transition-all cursor-pointer backdrop-blur-sm"
+              >
+                VIEW THE AGENDA
+              </a>
+            ) : (
+              <button
+                type="button"
+                disabled
+                title="The agenda will be available soon"
+                className="font-mono bg-black/85 text-white/50 py-4 px-8 md:px-10 rounded-full text-xs md:text-sm font-extrabold tracking-widest uppercase border border-white/10 cursor-not-allowed backdrop-blur-sm"
+              >
+                VIEW THE AGENDA
+              </button>
+            )}
             <a
-              href={`mailto:${PARTNERSHIPS_EMAIL}`}
-              className="bg-black/85 text-white py-4 px-8 md:px-10 rounded-full text-xs md:text-sm font-extrabold tracking-widest uppercase border border-white/20 hover:bg-white/15 transition-all cursor-pointer backdrop-blur-sm"
+              href={`mailto:${PARTNERSHIPS_EMAIL}?subject=${encodeURIComponent("Sponsorship deck request")}`}
+              className="font-mono bg-white text-black py-4 px-8 md:px-10 rounded-full text-xs md:text-sm font-extrabold tracking-widest uppercase border border-white hover:bg-white/85 transition-all cursor-pointer"
             >
-              PARTNER WITH US
+              REQUEST SPONSORSHIP DECK
             </a>
           </div>
         </div>
@@ -156,7 +183,7 @@ export default function Hero() {
       {/* Latest Updates Strip */}
       <div className="w-full bg-black border-t border-white/10">
         <div className="max-w-[1300px] mx-auto flex items-center px-4 md:px-10 py-4 md:py-5 gap-4 md:gap-6">
-          <span className="text-white text-sm md:text-base font-bold tracking-wide whitespace-nowrap">
+          <span className="font-mono text-white text-sm md:text-base font-bold tracking-wide whitespace-nowrap">
             Latest Updates
           </span>
 

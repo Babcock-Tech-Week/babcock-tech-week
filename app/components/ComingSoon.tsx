@@ -24,9 +24,9 @@ export default function ComingSoon({
         <Image
           src={IMAGES.logo.src}
           alt="Babcock Tech Week Logo"
-          width={80}
-          height={80}
-          className="w-20 h-20 mb-8 opacity-80"
+          width={IMAGES.logo.width}
+          height={IMAGES.logo.height}
+          className="w-32 h-auto mb-8 opacity-80"
         />
 
         {/* Page title */}

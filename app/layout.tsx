@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Google_Sans } from "next/font/google";
+import { Google_Sans, Archivo, Kode_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import "./fonts.css";
@@ -10,6 +10,18 @@ const googleSans = Google_Sans({
   variable: "--font-google-sans",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+});
+
+// 2027 typefaces (Dotun's creative direction): Archivo primary, Kode Mono secondary.
+// Google Sans stays loaded because the /2026 archive still uses it.
+const archivo = Archivo({
+  variable: "--font-archivo",
+  subsets: ["latin"],
+});
+
+const kodeMono = Kode_Mono({
+  variable: "--font-kode-mono",
+  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
@@ -24,7 +36,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${googleSans.variable} antialiased`}>
+      <body className={`${googleSans.variable} ${archivo.variable} ${kodeMono.variable} antialiased`}>
         {children}
         <Analytics />
       </body>

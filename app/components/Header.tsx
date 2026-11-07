@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { IMAGES } from "../lib/constants";
 import Image from "next/image";
+import { EVENT_DATES_SHORT } from "../lib/site";
 
 const navLinks = [
   { label: "HOME", href: "/" },
@@ -69,8 +70,8 @@ export default function Header({ solid = false, scrollThreshold }: { solid?: boo
               height={IMAGES.logo.height}
             />
 
-            <div className="text-xs font-bold leading-relaxed">
-              <div>29 NOV - 3 DEC 2026</div>
+            <div className="font-mono text-xs font-bold leading-relaxed">
+              <div>{EVENT_DATES_SHORT.toUpperCase()}</div>
               <div>BABCOCK UNIVERSITY</div>
             </div>
           </div>
@@ -90,7 +91,7 @@ export default function Header({ solid = false, scrollThreshold }: { solid?: boo
               <Link
                 key={link.label}
                 href={link.href}
-                className="text-[13px] font-bold tracking-wider text-white flex items-center gap-1 hover:opacity-70 transition-opacity"
+                className="font-mono text-[13px] font-bold tracking-wider text-white flex items-center gap-1 hover:opacity-70 transition-opacity"
               >
                 {link.label}
               </Link>

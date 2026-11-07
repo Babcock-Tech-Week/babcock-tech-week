@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { EVENT_COUNTDOWN_TARGET } from "../lib/site";
 
-const TARGET_DATE = new Date(EVENT_COUNTDOWN_TARGET); // 29 Nov 2026, 9AM WAT
+const TARGET_DATE = new Date(EVENT_COUNTDOWN_TARGET); // 21 March 2027, 9AM WAT
 
 interface TimeLeft {
   days: number;
@@ -55,7 +55,7 @@ export default function CountdownBar() {
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 bg-[#111]/95 backdrop-blur-sm border-t border-white/10">
-      <div className="max-w-[1400px] mx-auto px-4 md:px-8 py-3 flex items-center justify-center gap-4">
+      <div className="font-mono max-w-[1400px] mx-auto px-4 md:px-8 py-3 flex items-center justify-center gap-4">
         {/* Left: Presented by + BUCC Logo */}
         {/* <div className="hidden md:flex items-center gap-3">
                     <span className="text-[11px] text-gray-400 uppercase tracking-wider">

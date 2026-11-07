@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { ORGANISER_LINE, CO_ORGANISER_LINE } from "../lib/site";
+import { BUCC_URL, EVENT_DATES_SHORT, INFORTAINMENT_URL, ORGANISER_LINE, CO_ORGANISER_LINE } from "../lib/site";
 
 export default function Footer() {
   return (
@@ -37,11 +37,11 @@ export default function Footer() {
       <div className="max-w-[1200px] mx-auto py-12 md:py-16 px-4 md:px-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
         {/* Venue & Dates */}
         <div>
-          <h4 className="text-[13px] font-bold tracking-widest mb-5 uppercase">
+          <h4 className="font-mono text-[13px] font-bold tracking-widest mb-5 uppercase">
             VENUE &amp; DATES
           </h4>
           <p className="text-[13px] text-gray-400 leading-relaxed">
-            29 NOV - 3 DEC 2026
+            {EVENT_DATES_SHORT.toUpperCase()}
           </p>
           <p className="text-[13px] text-gray-400 leading-relaxed mt-3 font-semibold">
             BABCOCK UNIVERSITY, ILISHAN-REMO, OGUN STATE
@@ -50,14 +50,14 @@ export default function Footer() {
 
         {/* Quick Links */}
         <div>
-          <h4 className="text-[13px] font-bold tracking-widest mb-5 uppercase">
+          <h4 className="font-mono text-[13px] font-bold tracking-widest mb-5 uppercase">
             QUICK LINKS
           </h4>
           {[
             { label: "CONTACT US", href: "/contact" },
             // TODO: replace with Dozie's registration/interest page.
             { label: "REGISTER YOUR INTEREST", href: "/contact" },
-            { label: "ABOUT BUCC", href: "https://wearebucc.com" },
+            { label: "ABOUT BUCC", href: BUCC_URL },
           ].map((link) => (
             <a
               key={link.label}
@@ -72,26 +72,53 @@ export default function Footer() {
 
         {/* Organised By + Social */}
         <div>
-          <h4 className="text-[13px] font-bold tracking-widest mb-5 uppercase">
-            ORGANISED BY
-          </h4>
-          <a
-            href="https://wearebucc.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-3 mb-6 hover:opacity-80 transition-opacity"
-          >
-            <Image
-              src="/images/BUCClogo-white.png"
-              alt="BUCC Logo"
-              width={80}
-              height={80}
-              className="object-contain"
-            />
-            <span className="text-lg font-bold tracking-wider">BUCC</span>
-          </a>
+          <div className="flex flex-wrap gap-x-8 gap-y-5 mb-8">
+            <div>
+              <h4 className="font-mono text-[13px] font-bold tracking-widest mb-4 uppercase">
+                ORGANISED BY
+              </h4>
+              <a
+                href={BUCC_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 h-20 hover:opacity-80 transition-opacity"
+              >
+                <Image
+                  src="/images/BUCClogo-white.png"
+                  alt="BUCC Logo"
+                  width={80}
+                  height={80}
+                  className="object-contain"
+                />
+                <span className="text-lg font-bold tracking-wider">BUCC</span>
+              </a>
+            </div>
 
-          <h4 className="text-[13px] font-bold tracking-widest mb-4 uppercase text-gray-400">
+            <div>
+              <h4 className="font-mono text-[13px] font-bold tracking-widest mb-4 uppercase">
+                CO-ORGANISED BY
+              </h4>
+              {/* The logo is red and black, so it sits on a white plate to stay legible on the dark footer. */}
+              <a
+                href={INFORTAINMENT_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center h-20 hover:opacity-80 transition-opacity"
+              >
+                <span className="rounded-md bg-white px-3 py-1.5">
+                  <Image
+                    src="/infortainment-logo.png"
+                    alt="The Infortainment Company"
+                    width={792}
+                    height={315}
+                    className="h-12 w-auto object-contain"
+                  />
+                </span>
+              </a>
+            </div>
+          </div>
+
+          <h4 className="font-mono text-[13px] font-bold tracking-widest mb-4 uppercase text-gray-400">
             IN COLLABORATION WITH
           </h4>
           <div className="flex items-center gap-3 mb-6">
@@ -162,14 +189,14 @@ export default function Footer() {
         </p>
       </div>
 
-      {/* Large BTW Logo */}
+      {/* Large Friction logo */}
       <div className="border-t border-white/10 py-16 md:py-24 flex items-center justify-center">
         <Image
-          src="/logo.svg"
-          alt="Babcock Tech Week"
-          width={400}
-          height={400}
-          className="object-contain opacity-20 w-full max-w-7xl h-auto"
+          src="/friction-logo.png"
+          alt="Babcock Tech Week 2027: Friction"
+          width={1260}
+          height={143}
+          className="object-contain w-full max-w-7xl h-auto px-4 md:px-10"
         />
       </div>
 

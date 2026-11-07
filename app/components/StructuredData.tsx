@@ -8,6 +8,9 @@ import {
   GDG_URL,
   IEEE_INSTAGRAM_URL,
   INFORTAINMENT_LEGAL_NAME,
+  INFORTAINMENT_SHORT_NAME,
+  INFORTAINMENT_URL,
+  BUCC_URL,
 } from "../lib/site";
 
 const eventJsonLd = {
@@ -35,7 +38,7 @@ const eventJsonLd = {
     {
       "@type": "Organization",
       name: "Babcock University Computer Club (BUCC)",
-      // TODO: add url once BUCC's site is live (https://wearebucc.com returned 404 when checked).
+      url: BUCC_URL,
     },
     {
       "@type": "Organization",
@@ -50,9 +53,11 @@ const eventJsonLd = {
     {
       "@type": "Organization",
       name: INFORTAINMENT_LEGAL_NAME,
+      legalName: INFORTAINMENT_LEGAL_NAME,
+      url: INFORTAINMENT_URL,
+      alternateName: INFORTAINMENT_SHORT_NAME,
       description: "Operational and organisational partner of Babcock Tech Week",
       logo: `${SITE_URL}/infortainment-logo.png`,
-      // TODO: add url when The Infortainment Company's site is live.
     },
   ],
 };

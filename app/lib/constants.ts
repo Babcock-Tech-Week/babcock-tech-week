@@ -1,5 +1,8 @@
+import { BUCC_URL } from "./site";
+
 export const IMAGES = {
-  logo: { src: "/logo.svg", width: 100, height: 100 },
+  // TODO: swap for the chartreuse version of the 2027 logo.
+  logo: { src: "/logo-2027.svg", width: 110, height: 37 },
   heroBg: { src: "/images/hero-bg.jpeg", alt: "Tech Week Conference" },
 };
 
@@ -42,7 +45,7 @@ export const PARTNERS: Partner[] = [
     logo: "/images/partners/BUCC-logo-original.png",
     blend: true,
     paddingClass: "p-0 md:p-0",
-    url: "https://wearebucc.com",
+    url: BUCC_URL,
   },
   {
     name: "GDG",

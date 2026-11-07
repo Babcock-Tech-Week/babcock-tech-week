@@ -21,6 +21,7 @@
   --color-gold: #c9a530;
   --color-gold-dark: #2a1a05;
   --font-google-sans: "Google Sans", sans-serif;
+  --font-mono: var(--font-kode-mono), ui-monospace, monospace;
 }
 
 @layer base {
@@ -33,7 +34,7 @@
   body {
     background: var(--black);
     color: var(--white);
-    font-family: "Novecento WideDemiBold", "Google Sans", sans-serif;
+    font-family: var(--font-archivo), sans-serif;
     overflow-x: hidden;
     padding-bottom: 60px;
   }
@@ -44,7 +45,7 @@
   h4,
   h5,
   h6 {
-    font-family: "Incompleeta", sans-serif;
+    font-family: var(--font-archivo), sans-serif;
   }
 
   a {
@@ -79,4 +80,13 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+/* The /2026 archive keeps the 2026 typefaces. */
+.typeface-2026 {
+  font-family: "Novecento WideDemiBold", "Google Sans", sans-serif;
+}
+
+.typeface-2026 :where(h1, h2, h3, h4, h5, h6) {
+  font-family: "Incompleeta", sans-serif;
 }
