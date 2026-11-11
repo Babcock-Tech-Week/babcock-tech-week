@@ -91,7 +91,7 @@ export default async function NewsArticlePage({ params }: Props) {
               color: "#999",
               marginBottom: 16,
               fontFamily: "'Google Sans', sans-serif",
-              letterSpacing: "0.02em",
+              letterSpacing: "0.04em",
             }}
           >
             {article.date}
