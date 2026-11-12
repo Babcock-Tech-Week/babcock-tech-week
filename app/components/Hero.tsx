@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import Preloader from "./Preloader";
 import { IMAGES } from "../lib/constants";
 import { EVENT_NAME, EVENT_DATES_SHORT, AGENDA_URL, PARTNERSHIPS_EMAIL } from "../lib/site";
 
@@ -34,7 +35,11 @@ const HERO_IMAGES = [
   "/images/HeroCarousel/IMG_9612_1.jpg",
 ];
 
+// Give up waiting for the video after this long so a slow connection never blocks the page.
+const VIDEO_WAIT_MAX_MS = 6000;
+
 export default function Hero() {
+  const [videoReady, setVideoReady] = useState(false);
   const [currentUpdate, setCurrentUpdate] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
   const [currentImage, setCurrentImage] = useState(0);
@@ -44,6 +49,11 @@ export default function Hero() {
   const boxRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLSpanElement>(null);
   const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
+
+  useEffect(() => {
+    const t = setTimeout(() => setVideoReady(true), VIDEO_WAIT_MAX_MS);
+    return () => clearTimeout(t);
+  }, []);
 
   // Rotate hero background images only after video ends
   useEffect(() => {
@@ -102,14 +112,21 @@ export default function Hero() {
 
   return (
     <>
+      <Preloader ready={videoReady} />
       <section className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden pt-32 pb-16">
         {/* Background Image Carousel */}
         <div className="absolute inset-0 z-0">
           {/* Intro Video */}
           <video
+            ref={(v) => {
+              // The video may have loaded before hydration, so check it on mount too.
+              if (v && v.readyState >= 2) setVideoReady(true);
+            }}
             autoPlay
             muted
             playsInline
+            onLoadedData={() => setVideoReady(true)}
+            onError={() => setVideoReady(true)}
             onEnded={() => setVideoEnded(true)}
             className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
               !videoEnded ? "opacity-100" : "opacity-0"
