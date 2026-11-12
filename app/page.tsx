@@ -1,5 +1,6 @@
 import Header from "./components/Header";
 import Hero from "./components/Hero";
+import CollisionsSection from "./components/CollisionsSection";
 import AboutSection from "./components/AboutSection";
 import AnnouncementSection from "./components/AnnouncementSection";
 import Footer from "./components/Footer";
@@ -13,6 +14,7 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
+        <CollisionsSection />
         <AboutSection />
         <AnnouncementSection />
       </main>

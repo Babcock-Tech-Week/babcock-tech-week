@@ -12,6 +12,7 @@ import {
   INFORTAINMENT_URL,
   BUCC_URL,
 } from "../lib/site";
+import { COLLISIONS } from "../lib/collisions";
 
 const eventJsonLd = {
   "@context": "https://schema.org",
@@ -33,6 +34,12 @@ const eventJsonLd = {
     },
   },
   url: SITE_URL,
+  // Names only: no days, times or venues until they are announced.
+  subEvent: COLLISIONS.map((c) => ({
+    "@type": "Event",
+    name: c.title,
+    ...(c.title === "Build vs. Regulate" ? { startDate: "2027-03-23" } : {}),
+  })),
   // TODO: add `image` once the 1200x630 poster/share image exists.
   organizer: [
     {
